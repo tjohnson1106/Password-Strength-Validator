@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 
 class FormField extends Component {
   state = {
@@ -78,5 +79,16 @@ class FormField extends Component {
     );
   }
 }
+
+FormField.PropTypes = {
+  type: PropTypes.oneOf(["text", "password"]).isRequired,
+  label: PropTypes.string.isRequired,
+  fieldId: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  children: PropTypes.node,
+  validator: PropTypes.func,
+  onStateChanged: PropTypes.func
+};
 
 export default FormField;
