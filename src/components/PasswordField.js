@@ -119,4 +119,15 @@ class PasswordField extends Component {
   }
 }
 
+PasswordField.propTypes = {
+  label: PropTypes.string.isRequired,
+  fieldId: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  children: PropTypes.node,
+  onStateChanged: PropTypes.func,
+  minStrength: PropTypes.number,
+  thresholdLength: PropTypes.number
+};
+
 export default PasswordField;
