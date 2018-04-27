@@ -14,4 +14,13 @@ const EmailField = props => {
   return <FormField type="text" validator={validateEmail} {...restProps} />;
 };
 
+EmailField.propTypes = {
+  label: PropTypes.string.isRequired,
+  fieldId: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  children: PropTypes.node,
+  onStateChanged: PropTypes.func
+};
+
 export default EmailField;
