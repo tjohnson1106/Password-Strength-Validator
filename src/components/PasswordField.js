@@ -9,7 +9,12 @@ class PasswordField extends Component {
     super(props);
 
     const { minStrength = 3, thresholdLength = 7 } = props;
-    this.minStrength = typeof minStrength === "number" ? Math.max(thresholdLength, 7) : 7;
+
+    this.minStrength =
+      typeof minStrength === "number" ? Math.max(Math.min(minStrength, 4), 0) : 3;
+
+    this.thresholdLength =
+      typeof thresholdLength === "number" ? Math.max(thresholdLength, 7) : 7;
 
     this.state = { password: "", strength: 0 };
   }
@@ -65,10 +70,12 @@ class PasswordField extends Component {
               sufficiently strong password. Password must be more than 7 characters.
             </span>
             {children}
-            <div className="position-absolute password-count mx-3">
+            <div className={strengthClass}>
               <div className="strength-meter-fill" data-strength={strength} />
             </div>
           </FormField>
+          <div className="position-absolute password-count mx-3" />
+
           <div className="position-absolute password-count mx-3">
             <span className={counterClass}>
               {passwordLength

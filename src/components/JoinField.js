@@ -62,7 +62,7 @@ class JoinField extends Component {
             <PasswordField
               fieldId="password"
               label="Password"
-              placeholder="Enter email"
+              placeholder="Enter password"
               onStateChanged={this.passwordChanged}
               thresholdLength={7}
               minStrength={3}
